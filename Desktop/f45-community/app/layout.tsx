@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import BottomNav from '@/components/BottomNav'
 
 export const metadata: Metadata = {
   title: 'F45 커뮤니티',
@@ -15,7 +16,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <div className="pb-20">{children}</div>
+        <BottomNav />
+      </body>
     </html>
   )
 }
