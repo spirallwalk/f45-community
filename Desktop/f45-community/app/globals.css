@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --f45-blue: #003DA5;
+  --f45-red: #E8002D;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0A0A0A;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-f45-red hover:bg-f45-red-dark text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-f45-blue hover:bg-f45-blue-dark text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border-2 border-white/20 hover:border-white/40 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 active:scale-95 bg-white/5 hover:bg-white/10;
+  }
+
+  .card {
+    @apply bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm;
+  }
+
+  .input-field {
+    @apply w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white text-base placeholder-white/40 focus:outline-none focus:border-f45-blue focus:ring-2 focus:ring-f45-blue/30 transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-semibold text-white/70 mb-2 uppercase tracking-wider;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1C1C1C;
+}
+::-webkit-scrollbar-thumb {
+  background: #003DA5;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E8002D;
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(#0A0A0A, #0A0A0A) padding-box,
+              linear-gradient(135deg, #003DA5, #E8002D) border-box;
+  border: 2px solid transparent;
+  border-radius: 16px;
+}
+
+/* Glow effect */
+.blue-glow {
+  box-shadow: 0 0 30px rgba(0, 61, 165, 0.3);
+}
+
+.red-glow {
+  box-shadow: 0 0 30px rgba(232, 0, 45, 0.3);
+}
+
+/* Notice banner slide animation */
+@keyframes notice-slide-in {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.notice-slide-in {
+  animation: notice-slide-in 0.3s ease-out;
+}
+
+/* Pulse animation for workout button */
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 0, 45, 0.4); }
+  50% { box-shadow: 0 0 0 20px rgba(232, 0, 45, 0); }
+}
+
+.pulse-red {
+  animation: pulse-red 2s infinite;
+}
